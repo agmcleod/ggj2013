@@ -2,7 +2,8 @@
 
 **To run:** 
 
-- Install [ruby](http://www.ruby-lang.org/en/downloads/).
+- Install (Mac or Linux) [ruby](http://www.ruby-lang.org/en/downloads/). 
+- Install (Windows) [download](http://rubyinstaller.org/downloads/) You'll need the [dev kit](http://rubyinstaller.org/downloads/) for windows.
 - Download or clone the source
 - In command line, run `bundle install`
 - Then `middleman server`
