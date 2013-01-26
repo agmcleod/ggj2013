@@ -22,6 +22,7 @@ window.App = {
       src: "images/player.png"
     }])
 
+    me.audio.init("mp3")
     me.state.change(me.state.LOADING)
 
   loaded: ->
@@ -33,15 +34,18 @@ window.App = {
 
 Game = me.InvisibleEntity.extend({
   init: ->
-    player = new Entities.Player()
-    me.game.add(player, this.spriteZIndex)
     this.backgrounds = [
       new Entities.Background(0, 0, {}),
       new Entities.Background(0, 1280, {})
     ]
     this.bottomBackground = 0
-    me.game.add(this.backgrounds[0], 10)
-    me.game.add(this.backgrounds[1], 10)
+    me.game.add(this.backgrounds[0], 0)
+    me.game.add(this.backgrounds[1], 0)
+
+    player = new Entities.Player()
+    me.game.add(player, this.spriteZIndex)
+    #this.musicController = new MusicController()
+    #this.musicController.init()
 
   spriteZIndex: 50
   bulletZIndex: 49
@@ -57,6 +61,7 @@ Game = me.InvisibleEntity.extend({
 PlayScreen = me.ScreenObject.extend({
   onDestroyEvent: ->
     me.game.disableHUD()
+    window.App.game.musicController.cleanup()
 
   onResetEvent: ->
     window.App.game = new Game()
