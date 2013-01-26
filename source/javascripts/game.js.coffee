@@ -50,9 +50,14 @@ Game = me.InvisibleEntity.extend({
 })
 
 PlayScreen = me.ScreenObject.extend({
+  onDestroyEvent: ->
+    me.game.disableHUD()
+    
   onResetEvent: ->
     window.App.game = new Game()
     me.game.add(window.App.game, 0)
+    me.game.addHUD(0, 0, 800, 640)
+    me.game.HUD.addItem("score", new ScoreObject(650, 10))
     me.game.sort()
 })
 

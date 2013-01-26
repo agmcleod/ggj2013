@@ -9,6 +9,10 @@ Entities.BaseEntity = me.ObjectEntity.extend({
   onCollision: (res, obj) ->
     if obj['source'] != null && obj['source'] != this.entity_source
       this.health -= obj.damage
+      if obj.source == "player" && this.health <= 0
+        me.game.remove(this)
+        me.game.HUD.updateItemValue("score", 100)
+
     else if obj['entity_source'] != null && obj['entity_source'] != this.entity_source
       this.health -= 1
 
