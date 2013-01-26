@@ -1,0 +1,17 @@
+*{margin:0;padding:0}h1,h2,h3,h4,h5,p,li,a{font-size:14px;font-weight:normal}button,img{border:0}body{font-family:Arial, sans-serif;}
+
+#app {
+  width:800px;
+  height:640px;
+  margin:0 auto;
+}
+
+h1 {
+  font-size:1.8em;
+  font-weight:bold;
+}
+
+h1, p {
+  text-align:center;
+  margin:1.2em;
+}
