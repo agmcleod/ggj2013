@@ -38,6 +38,9 @@ Game = me.InvisibleEntity.extend({
     this.bottomBackground = 0
     me.game.add(this.backgrounds[0], 10)
     me.game.add(this.backgrounds[1], 10)
+    bullet = new Entities.Bullet(300, 300, { tx: 800, ty: 0, source: this.entity_source })
+    bullet.setAnimationArray([0])
+    me.game.add(bullet, 100)
 
   spriteZIndex: 50
   bulletZIndex: 51

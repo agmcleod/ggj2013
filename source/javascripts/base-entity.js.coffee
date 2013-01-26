@@ -18,7 +18,7 @@ Entities.BaseEntity = me.ObjectEntity.extend({
 
 
   shoot: (target) ->
-    bullet = new Bullet(this.pos.x, this.pos.y, { tx: target.x, ty: target.y, source: this.entity_source })
+    bullet = new Entities.Bullet(this.pos.x, this.pos.y, { tx: target.x, ty: target.y, source: this.entity_source })
     bullet.setAnimation([0])
     me.game.add(bullet, window.App.game.bulletZIndex)
     
