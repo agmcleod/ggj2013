@@ -16,6 +16,10 @@ window.App = {
       name: "bullets",
       type: "image",
       src: "images/bullets.png"
+    }, {
+      name: "player",
+      type: "image",
+      src: "images/player.png"
     }])
 
     me.state.change(me.state.LOADING)
@@ -29,8 +33,8 @@ window.App = {
 
 Game = me.InvisibleEntity.extend({
   init: ->
-    #player = new Entities.Player(500, 500, {})
-    #me.game.add(player, this.spriteZIndex)
+    player = new Entities.Player(400, 300, {})
+    me.game.add(player, this.spriteZIndex)
     this.backgrounds = [
       new Entities.Background(0, 0, {}),
       new Entities.Background(0, 1280, {})
@@ -38,12 +42,10 @@ Game = me.InvisibleEntity.extend({
     this.bottomBackground = 0
     me.game.add(this.backgrounds[0], 10)
     me.game.add(this.backgrounds[1], 10)
-    bullet = new Entities.Bullet(300, 300, { tx: 800, ty: 0, source: this.entity_source })
-    bullet.setAnimationArray([0])
-    me.game.add(bullet, 100)
 
   spriteZIndex: 50
-  bulletZIndex: 51
+  bulletZIndex: 49
+  bulletZEnemyIndex: 51
 
   update: ->
     me.video.clearSurface(me.video.getScreenCanvas().getContext("2d"), "#000")
