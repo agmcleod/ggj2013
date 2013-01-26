@@ -15,3 +15,7 @@ h1, p {
   text-align:center;
   margin:1.2em;
 }
+
+#app {
+  cursor:url('../images/crosshair.png'), auto;
+}
