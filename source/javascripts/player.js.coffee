@@ -25,7 +25,6 @@ Entities.Player = Entities.BaseEntity.extend({
       if angle < 0
         angle = 360 - (-angle)
       this.angle = (angle - 90) * Math.PI/180
-      console.log "player: #{this.angle}"
     else
       this.setCurrentAnimation("idle")
       this.parent(null, this)

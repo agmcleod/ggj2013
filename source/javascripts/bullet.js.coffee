@@ -19,7 +19,6 @@ Entities.Bullet = me.ObjectEntity.extend({
     if angle < 0
       angle = 360 - (-angle)
     this.angle = (angle - 90) * Math.PI/180
-    console.log "bullet: #{this.angle}"
 
   update: ->
     if this.pos.x > 800 || this.pos.x < -this.width || this.pos.y < -this.height || this.pos.y > 640

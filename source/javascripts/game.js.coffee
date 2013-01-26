@@ -3,6 +3,7 @@ window.App = {
     if !me.video.init("app", 800, 640, false, 1)
       alert "your browser does not support the canvas"
 
+    me.audio.init("ogg")
     me.loader.onload = this.loaded.bind(this)
     me.loader.preload([{
       name: "TowerBG",
@@ -20,6 +21,11 @@ window.App = {
       name: "player",
       type: "image",
       src: "images/player.png"
+    }, {
+      name: "Gunshot_A",
+      type: "audio",
+      src: "sound/",
+      channel: 2
     }])
 
     #, {
@@ -42,7 +48,6 @@ window.App = {
     #  src: "sound/"
     #}
 
-    me.audio.init("mp3,ogg")
     me.state.change(me.state.LOADING)
 
   loaded: ->
