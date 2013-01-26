@@ -37,7 +37,7 @@ Entities.BaseEntity = me.ObjectEntity.extend({
 
     if added_bullet
       me.game.sort()
-      me.audio.play("Gunshot_A")
+      me.audio.play("gunshot_a")
     
   update: (target, obj) ->
     if target != null && typeof target != "undefined" && (me.timer.getTime() - this.timer) > this.shootCooldown

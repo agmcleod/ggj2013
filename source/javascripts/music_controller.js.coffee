@@ -30,8 +30,8 @@ class window.MusicController
   play: (track_name) ->
     if this.playing
       me.audio.stopTrack()
-    this.timer = me.timer.getTime()
     me.audio.playTrack(this.tracks[track_name].file)
+    this.timer = me.timer.getTime()
     this.currentTrack = track_name
     this.playing = true
 

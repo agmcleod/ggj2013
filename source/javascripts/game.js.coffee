@@ -22,7 +22,7 @@ window.App = {
       type: "image",
       src: "images/player.png"
     }, {
-      name: "Gunshot_A",
+      name: "gunshot_a",
       type: "audio",
       src: "sound/",
       channel: 2
