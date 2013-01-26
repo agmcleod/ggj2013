@@ -4,7 +4,11 @@ window.App = {
       alert "your browser does not support the canvas"
 
     me.loader.onload = this.loaded.bind(this)
-    me.loader.preload([])
+    me.loader.preload([{
+      "04b03_font",
+      "image",
+      "images/04b03.fnt.png"
+    }])
 
     me.state.change(me.state.LOADING)
 

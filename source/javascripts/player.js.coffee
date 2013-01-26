@@ -4,7 +4,7 @@ Entities.Player = Entities.BaseEntity.extend({
     settings.spriteWidth = 64
     settings.spriteHeight = 64
     settings.shootCooldown = 200
-    settings.source = "player"
+    settings.entity_source = "player"
     settings.health = 5
     this.parent(x, y, settings)
 
