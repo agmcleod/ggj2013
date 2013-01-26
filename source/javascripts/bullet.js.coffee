@@ -8,6 +8,8 @@ Entities.Bullet = me.ObjectEntity.extend({
     this.width = 10
     this.height = 10
     this.speed = 30
+    this.source = settings.source
+    this.damage = 1
     calculateTarget()
     this.parent(x, y, settings)
 
