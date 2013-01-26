@@ -21,15 +21,27 @@ Game = me.InvisibleEntity.extend({
     me.game.add(player, 100)
     this.backgrounds = [
       new Entities.Background(0, 0, {}),
-      new Entities.Background(0, 0, {})
+      new Entities.Background(640, 0, {})
     ]
+    this.bottomBackground = 0
     me.game.add(this.backgrounds[0], 10)
-    me.game.add(this.backgrounds[0], 10)
+    me.game.add(this.backgrounds[1], 10)
 
   spriteZIndex: 50
 
   update: ->
     me.video.clearSurface(me.video.getScreenCanvas().getContext("2d"), "#000")
+    this.updateBackgrounds()
+
+  updateBackgrounds: ->
+    for b, i in this.backgrounds
+      b.pos.y -= 160
+      if b.pos.y < -640
+        b.pos.y = 640
+        if i == 0
+          this.bottomBackground = 1
+        else if i == 1
+          this.bottomBackground = 0
 })
 
 PlayScreen = me.ScreenObject.extend({
