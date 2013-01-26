@@ -26,27 +26,27 @@ window.App = {
       type: "audio",
       src: "sound/",
       channel: 2
+    }, {
+      name: "112bpm_fade_in_intro",
+      type: "audio",
+      src: "sound/",
+      channel: 1
+    }
+    , {
+      name: "112bpm_1_layer_loop",
+      type: "audio",
+      src: "sound/"
+    }, {
+      name: "112bpm_2_layer_loop",
+      type: "audio",
+      src: "sound/"
+    }, {
+      name: "112bpm_3_layer_loop",
+      type: "audio",
+      src: "sound/"
     }])
 
-    #, {
-    #  name: "112bpm_fade_in_intro",
-    #  type: "audio",
-    #  src: "sound/",
-    #  channel: 1
-    #}
-    #, {
-    #  name: "112bpm_1_layer_loop",
-    #  type: "audio",
-    #  src: "sound/"
-    #}, {
-    #  name: "112bpm_2_layer_loop",
-    #  type: "audio",
-    #  src: "sound/"
-    #}, {
-    #  name: "112bpm_3_layer_loop",
-    #  type: "audio",
-    #  src: "sound/"
-    #}
+    
 
     me.state.change(me.state.LOADING)
 
@@ -69,8 +69,8 @@ Game = me.InvisibleEntity.extend({
 
     player = new Entities.Player()
     me.game.add(player, this.spriteZIndex)
-    #this.musicController = new MusicController()
-    #this.musicController.init()
+    this.musicController = new MusicController()
+    this.musicController.init()
     #me.debug.renderHitBox = true
 
   spriteZIndex: 50
@@ -79,6 +79,7 @@ Game = me.InvisibleEntity.extend({
 
   update: ->
     me.video.clearSurface(me.video.getScreenCanvas().getContext("2d"), "#000")
+    this.musicController.update()
       
 })
 
