@@ -25,7 +25,7 @@ Entities.BaseEntity = me.ObjectEntity.extend({
 
   shoot: (target) ->
     bullet = new Entities.Bullet(this.center().x, this.center().y, { tx: target.x, ty: target.y, source: this.entity_source })
-    bullet.addAnimationArray([0], true)
+    bullet.addAnimationArray([0])
 
     if this.entity_source == "enemy"
       me.game.add(bullet, window.App.game.bulletZEnemyIndex)

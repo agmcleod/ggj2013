@@ -66,6 +66,7 @@ Game = me.InvisibleEntity.extend({
     me.game.add(player, this.spriteZIndex)
     #this.musicController = new MusicController()
     #this.musicController.init()
+    #me.debug.renderHitBox = true
 
   spriteZIndex: 50
   bulletZIndex: 49
