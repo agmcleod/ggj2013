@@ -3,4 +3,5 @@
 //= require base-entity
 //= require player
 //= require background
+//= require score-hud
 //= require game
