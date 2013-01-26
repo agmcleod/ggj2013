@@ -1,4 +1,4 @@
-App = {
+window.App = {
   init: ->
     if !me.video.init("app", 800, 640, false, 1)
       alert "your browser does not support the canvas"
@@ -19,6 +19,14 @@ Game = me.InvisibleEntity.extend({
   init: ->
     # player = new Entities.Player(500, 500, {})
     # me.game.add(player, 100)
+    this.backgrounds = [
+      new Background(0, 0, {}),
+      new Background(0, 0, {})
+    ]
+    me.game.add(backgrounds[0], 10)
+    me.game.add(backgrounds[0], 10)
+
+  spriteZIndex: 50
 
   update: ->
     me.video.clearSurface(me.video.getScreenCanvas().getContext("2d"), "#000")
@@ -26,7 +34,8 @@ Game = me.InvisibleEntity.extend({
 
 PlayScreen = me.ScreenObject.extend({
   onResetEvent: ->
-    me.game.add(new Game(), 0)
+    window.App.game = new Game()
+    me.game.add(window.App.game, 0)
     me.game.sort()
 })
 
