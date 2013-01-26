@@ -22,7 +22,27 @@ window.App = {
       src: "images/player.png"
     }])
 
-    me.audio.init("mp3")
+    #, {
+    #  name: "112bpm_fade_in_intro",
+    #  type: "audio",
+    #  src: "sound/",
+    #  channel: 1
+    #}
+    #, {
+    #  name: "112bpm_1_layer_loop",
+    #  type: "audio",
+    #  src: "sound/"
+    #}, {
+    #  name: "112bpm_2_layer_loop",
+    #  type: "audio",
+    #  src: "sound/"
+    #}, {
+    #  name: "112bpm_3_layer_loop",
+    #  type: "audio",
+    #  src: "sound/"
+    #}
+
+    me.audio.init("mp3,ogg")
     me.state.change(me.state.LOADING)
 
   loaded: ->
@@ -53,8 +73,6 @@ Game = me.InvisibleEntity.extend({
 
   update: ->
     me.video.clearSurface(me.video.getScreenCanvas().getContext("2d"), "#000")
-
-  updateBackgrounds: ->
       
 })
 

@@ -26,10 +26,13 @@ Entities.BaseEntity = me.ObjectEntity.extend({
   shoot: (target) ->
     bullet = new Entities.Bullet(this.center().x, this.center().y, { tx: target.x, ty: target.y, source: this.entity_source })
     bullet.addAnimationArray([0], true)
+
     if this.entity_source == "enemy"
       me.game.add(bullet, window.App.game.bulletZEnemyIndex)
     else if this.entity_source == "player"
       me.game.add(bullet, window.App.game.bulletZIndex)
+
+    me.game.sort()
     
   update: (target, obj) ->
     if target != null && typeof target != "undefined" && (me.timer.getTime() - this.timer) > this.shootCooldown

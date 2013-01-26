@@ -5,12 +5,10 @@ Entities.Bullet = me.ObjectEntity.extend({
     settings.image = "bullets"
     settings.spritewidth = 16
     settings.spriteheight = 16
-    this.width = 16
-    this.height = 16
+    this.parent(x, y, settings)
     this.speed = 30
     this.source = settings.source
     this.damage = 1
-    this.parent(x, y, settings)
     this.calculateTarget()
 
   calculateTarget: ->
