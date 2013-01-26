@@ -73,6 +73,8 @@ Game = me.InvisibleEntity.extend({
 
     player = new Entities.Player()
     me.game.add(player, this.spriteZIndex)
+    me.game.HUD.addItem("health", new HUD.ScoreHUD(40, 10))
+    me.game.HUD.setItemValue("health", "HP: #{player.health}")
     this.musicController = new MusicController()
     this.musicController.init()
     #me.debug.renderHitBox = true
@@ -93,10 +95,10 @@ PlayScreen = me.ScreenObject.extend({
     window.App.game.musicController.cleanup()
 
   onResetEvent: ->
+    me.game.addHUD(0, 0, 800, 640)
+    me.game.HUD.addItem("score", new HUD.ScoreHUD(650, 10, 'yellow'))
     window.App.game = new Game()
     me.game.add(window.App.game, 0)
-    me.game.addHUD(0, 0, 800, 640)
-    me.game.HUD.addItem("score", new HUD.ScoreHUD(650, 10))
     me.game.sort()
 })
 

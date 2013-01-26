@@ -8,6 +8,8 @@ Entities.Player = Entities.BaseEntity.extend({
       entity_source: "player",
       health: 5
     }
+
+    this.health = settings.health
    
     x = (800 / 2) - (settings.spritewidth / 2)
     y = (640 / 2) - (settings.spriteheight / 2)
