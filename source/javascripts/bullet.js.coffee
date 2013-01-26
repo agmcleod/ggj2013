@@ -21,4 +21,7 @@ Entities.Bullet = me.ObjectEntity.extend({
   update: ->
     if this.pos.x > 800 || this.pos.x < -this.width || this.pos.y < -this.height || this.pos.y > 640
       me.game.remove(this)
+
+  setAnimation: (arr) ->
+    this.addAnimation("idle", arr)
 })

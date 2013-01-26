@@ -5,13 +5,17 @@ window.App = {
 
     me.loader.onload = this.loaded.bind(this)
     me.loader.preload([{
-      name: "04b03_font",
-      type: "image",
-      src: "images/04b03.font.png"
-    }, {
       name: "TowerBG",
       type: "image",
       src: "images/TowerBG.jpg"
+    }, {
+      name: "Tower_BlurBG",
+      type: "image",
+      src: "images/Tower_BlurBG.jpg"
+    } ,{
+      name: "bullets",
+      type: "image",
+      src: "images/bullets.png"
     }])
 
     me.state.change(me.state.LOADING)
@@ -40,17 +44,9 @@ Game = me.InvisibleEntity.extend({
 
   update: ->
     me.video.clearSurface(me.video.getScreenCanvas().getContext("2d"), "#000")
-    this.updateBackgrounds()
 
   updateBackgrounds: ->
-    for b, i in this.backgrounds
-      b.pos.y -= 40
-      if b.pos.y < -1280
-        b.pos.y = 1280
-        if i == 0
-          this.bottomBackground = 1
-        else if i == 1
-          this.bottomBackground = 0
+      
 })
 
 PlayScreen = me.ScreenObject.extend({
