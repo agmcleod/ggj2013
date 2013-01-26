@@ -1,3 +1,4 @@
 //= require melonJS-0.9.5-min
 //= require player
+//= require background
 //= require game

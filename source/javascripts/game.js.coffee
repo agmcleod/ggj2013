@@ -17,14 +17,14 @@ window.App = {
 
 Game = me.InvisibleEntity.extend({
   init: ->
-    # player = new Entities.Player(500, 500, {})
-    # me.game.add(player, 100)
+    player = new Entities.Player(500, 500, {})
+    me.game.add(player, 100)
     this.backgrounds = [
-      new Background(0, 0, {}),
-      new Background(0, 0, {})
+      new Entities.Background(0, 0, {}),
+      new Entities.Background(0, 0, {})
     ]
-    me.game.add(backgrounds[0], 10)
-    me.game.add(backgrounds[0], 10)
+    me.game.add(this.backgrounds[0], 10)
+    me.game.add(this.backgrounds[0], 10)
 
   spriteZIndex: 50
 
