@@ -2,6 +2,7 @@
 //= require bullet
 //= require base_entity
 //= require player
+//= require green_monster
 //= require background
 //= require score_hud
 //= require music_controller

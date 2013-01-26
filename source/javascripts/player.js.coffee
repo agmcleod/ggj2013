@@ -6,7 +6,7 @@ Entities.Player = Entities.BaseEntity.extend({
       spriteheight: 96,
       shootCooldown: 100,
       entity_source: "player",
-      health: 5   
+      health: 5
     }
    
     x = (800 / 2) - (settings.spritewidth / 2)

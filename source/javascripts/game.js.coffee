@@ -22,6 +22,10 @@ window.App = {
       type: "image",
       src: "images/player.png"
     }, {
+      name: "green_monster",
+      type: "image",
+      src: "images/green_monster.png"
+    },{
       name: "gunshot_a",
       type: "audio",
       src: "sound/",

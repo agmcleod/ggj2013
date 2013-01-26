@@ -6,7 +6,7 @@ Entities.Bullet = me.ObjectEntity.extend({
     settings.spritewidth = 16
     settings.spriteheight = 16
     this.parent(x, y, settings)
-    this.speed = 30
+    this.speed = 10
     this.source = settings.source
     this.damage = 1
     this.timer = me.timer.getTime()
