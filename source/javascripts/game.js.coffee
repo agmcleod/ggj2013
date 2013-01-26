@@ -18,7 +18,7 @@ window.App = {
 Game = me.InvisibleEntity.extend({
   init: ->
     player = new Entities.Player(500, 500, {})
-    me.game.add(player, 100)
+    me.game.add(player, this.spriteZIndex)
     this.backgrounds = [
       new Entities.Background(0, 0, {}),
       new Entities.Background(640, 0, {})
@@ -28,6 +28,7 @@ Game = me.InvisibleEntity.extend({
     me.game.add(this.backgrounds[1], 10)
 
   spriteZIndex: 50
+  bulletZIndex: 51
 
   update: ->
     me.video.clearSurface(me.video.getScreenCanvas().getContext("2d"), "#000")
