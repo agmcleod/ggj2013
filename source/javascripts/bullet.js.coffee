@@ -3,8 +3,8 @@ Entities.Bullet = me.ObjectEntity.extend({
     this.tx = settings.tx
     this.ty = settings.ty
     settings.image = "bullets"
-    settings.spriteWidth = 16
-    settings.spriteHeight = 16
+    settings.spritewidth = 16
+    settings.spriteheight = 16
     this.width = 16
     this.height = 16
     this.speed = 30
@@ -23,6 +23,7 @@ Entities.Bullet = me.ObjectEntity.extend({
 
   update: ->
     if this.pos.x > 800 || this.pos.x < -this.width || this.pos.y < -this.height || this.pos.y > 640
+      console.log "bullet removed"
       me.game.remove(this)
 
     this.pos.x += this.velx

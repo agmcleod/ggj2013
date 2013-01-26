@@ -33,7 +33,7 @@ window.App = {
 
 Game = me.InvisibleEntity.extend({
   init: ->
-    player = new Entities.Player(400, 300, {})
+    player = new Entities.Player()
     me.game.add(player, this.spriteZIndex)
     this.backgrounds = [
       new Entities.Background(0, 0, {}),

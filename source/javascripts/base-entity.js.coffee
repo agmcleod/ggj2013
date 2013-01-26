@@ -6,6 +6,12 @@ Entities.BaseEntity = me.ObjectEntity.extend({
     this.health = settings.health
     this.parent(x, y, settings)
 
+  center: ->
+    {
+      x: this.pos.x + (this.width / 2),
+      y: this.pos.y + (this.height / 2)
+    }
+
   onCollision: (res, obj) ->
     if obj['source'] != null && obj['source'] != this.entity_source
       this.health -= obj.damage
@@ -18,18 +24,20 @@ Entities.BaseEntity = me.ObjectEntity.extend({
 
 
   shoot: (target) ->
-    bullet = new Entities.Bullet(this.pos.x, this.pos.y, { tx: target.x, ty: target.y, source: this.entity_source })
+    bullet = new Entities.Bullet(this.center().x, this.center().y, { tx: target.x, ty: target.y, source: this.entity_source })
     bullet.addAnimationArray([0], true)
     if this.entity_source == "enemy"
       me.game.add(bullet, window.App.game.bulletZEnemyIndex)
     else if this.entity_source == "player"
+      console.log "player: #{window.App.game.bulletZIndex}"
       me.game.add(bullet, window.App.game.bulletZIndex)
     
-  update: (target) ->
+  update: (target, obj) ->
     if target != null && typeof target != "undefined" && (me.timer.getTime() - this.timer) > this.shootCooldown
-      shoot(target)
+      this.shoot(target)
+      this.timer = me.timer.getTime()
 
-    this.parent()
+    this.parent(obj)
     true
 
 })

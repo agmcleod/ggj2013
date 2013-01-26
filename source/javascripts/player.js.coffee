@@ -1,11 +1,16 @@
 Entities.Player = Entities.BaseEntity.extend({
-  init: (x, y, settings) ->
-    settings.image = "player"
-    settings.spriteWidth = 128
-    settings.spriteHeight = 96
-    settings.shootCooldown = 200
-    settings.entity_source = "player"
-    settings.health = 5
+  init: () ->
+    settings = {
+      image: "player",
+      spritewidth: 128,
+      spriteheight: 96,
+      shootCooldown: 200,
+      entity_source: "player",
+      health: 5   
+    }
+   
+    x = (800 / 2) - (settings.spritewidth / 2)
+    y = (640 / 2) - (settings.spriteheight / 2)
     this.parent(x, y, settings)
     this.addAnimation("idle",[0])
     this.setCurrentAnimation("idle")
@@ -13,8 +18,8 @@ Entities.Player = Entities.BaseEntity.extend({
 
   update: ->
     if me.input.isKeyPressed("shoot")
-      this.parent(me.input.mouse.pos)
+      this.parent(me.input.mouse.pos, this)
     else
-      this.parent()
+      this.parent(null, this)
     true
 })
