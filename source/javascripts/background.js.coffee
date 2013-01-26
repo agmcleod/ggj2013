@@ -1,8 +1,8 @@
 Entities.Background = me.ObjectEntity.extend({
   init: (x, y, settings) ->
     settings.spritewidth = 800
-    settings.spriteheight = 640
-    settings.image = "background"
+    settings.spriteheight = 1280
+    settings.image = "TowerBG"
     this.parent(x, y, settings)
 
   update: ->

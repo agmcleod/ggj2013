@@ -5,9 +5,13 @@ window.App = {
 
     me.loader.onload = this.loaded.bind(this)
     me.loader.preload([{
-      "04b03_font",
-      "image",
-      "images/04b03.fnt.png"
+      name: "04b03_font",
+      type: "image",
+      src: "images/04b03.font.png"
+    }, {
+      name: "TowerBG",
+      type: "image",
+      src: "images/TowerBG.jpg"
     }])
 
     me.state.change(me.state.LOADING)
@@ -21,11 +25,11 @@ window.App = {
 
 Game = me.InvisibleEntity.extend({
   init: ->
-    player = new Entities.Player(500, 500, {})
-    me.game.add(player, this.spriteZIndex)
+    #player = new Entities.Player(500, 500, {})
+    #me.game.add(player, this.spriteZIndex)
     this.backgrounds = [
       new Entities.Background(0, 0, {}),
-      new Entities.Background(640, 0, {})
+      new Entities.Background(0, 1280, {})
     ]
     this.bottomBackground = 0
     me.game.add(this.backgrounds[0], 10)
@@ -40,9 +44,9 @@ Game = me.InvisibleEntity.extend({
 
   updateBackgrounds: ->
     for b, i in this.backgrounds
-      b.pos.y -= 160
-      if b.pos.y < -640
-        b.pos.y = 640
+      b.pos.y -= 40
+      if b.pos.y < -1280
+        b.pos.y = 1280
         if i == 0
           this.bottomBackground = 1
         else if i == 1
@@ -52,12 +56,12 @@ Game = me.InvisibleEntity.extend({
 PlayScreen = me.ScreenObject.extend({
   onDestroyEvent: ->
     me.game.disableHUD()
-    
+
   onResetEvent: ->
     window.App.game = new Game()
     me.game.add(window.App.game, 0)
     me.game.addHUD(0, 0, 800, 640)
-    me.game.HUD.addItem("score", new ScoreObject(650, 10))
+    me.game.HUD.addItem("score", new HUD.ScoreHUD(650, 10))
     me.game.sort()
 })
 
