@@ -77,11 +77,17 @@ Game = me.InvisibleEntity.extend({
     me.game.HUD.setItemValue("health", "HP: #{player.health}")
     this.musicController = new MusicController()
     this.musicController.init()
+    this.player = player
+
+    this.spawnEnemy()
     #me.debug.renderHitBox = true
 
   spriteZIndex: 50
   bulletZIndex: 49
   bulletZEnemyIndex: 51
+
+  spawnEnemy: ->
+    me.game.add(new Entities.GreenMonster(), this.spriteZIndex)
 
   update: ->
     me.video.clearSurface(me.video.getScreenCanvas().getContext("2d"), "#000")

@@ -11,6 +11,8 @@ Entities.Bullet = me.ObjectEntity.extend({
     this.damage = 1
     this.timer = me.timer.getTime()
     this.calculateTarget()
+    this.collidable = true
+    this.type = me.game.ACTION_OBJECT
 
   calculateTarget: ->
     angle = Math.atan2(this.ty - this.pos.y, this.tx - this.pos.x) * (180 / Math.PI)
@@ -28,6 +30,12 @@ Entities.Bullet = me.ObjectEntity.extend({
       this.addAnimation("idle2", [this.arr[0]+1])
       this.setCurrentAnimation("idle2")
 
+    res = me.game.collide(this)
+    #if res && (this.source == "enemy" && res.obj.entity_source == "player") || (this.source == "player" && res.obj.entity_source == "enemy")
+      #this.visible = false
+      #this.collidable = false
+      # me.game.remove(this)
+    #else
     this.pos.x += this.velx
     this.pos.y += this.vely
     this.parent()

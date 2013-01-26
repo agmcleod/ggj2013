@@ -4,9 +4,10 @@ Entities.Player = Entities.BaseEntity.extend({
       image: "player",
       spritewidth: 128,
       spriteheight: 96,
-      shootCooldown: 100,
+      shootCooldown: 150,
       entity_source: "player",
-      health: 5
+      health: 5,
+      type: me.game.ACTION_OBJECT
     }
 
     this.health = settings.health
@@ -14,6 +15,7 @@ Entities.Player = Entities.BaseEntity.extend({
     x = (800 / 2) - (settings.spritewidth / 2)
     y = (640 / 2) - (settings.spriteheight / 2)
     this.parent(x, y, settings)
+
     this.addAnimation("idle",[0])
     this.setCurrentAnimation("idle")
     this.addAnimation("shooting", [1])
