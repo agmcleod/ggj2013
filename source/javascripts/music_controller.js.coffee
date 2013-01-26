@@ -41,9 +41,7 @@ class window.MusicController
       me.audio.stopTrack()
       t_name = ''
       for own name, track of this.tracks
-        console.log "if #{track.i} == #{this.tracks[this.currentTrack].i + 1}"
         if track.i == (this.tracks[this.currentTrack].i + 1)
           t_name = name
           break
-      console.log "t_name: #{t_name}"
       this.play(t_name) if t_name != ''

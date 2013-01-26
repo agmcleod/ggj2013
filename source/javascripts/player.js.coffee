@@ -15,6 +15,14 @@ Entities.Player = Entities.BaseEntity.extend({
     this.addAnimation("idle",[0])
     this.setCurrentAnimation("idle")
     this.addAnimation("shooting", [1])
+    r = Math.floor(Math.random())
+    this.startX = this.pos.x
+    this.maxX = 50
+    if r == 0
+      this.velx = -2
+    else
+      this.velx = 2
+
 
   update: ->
     if me.input.isKeyPressed("shoot")
@@ -28,6 +36,12 @@ Entities.Player = Entities.BaseEntity.extend({
     else
       this.setCurrentAnimation("idle")
       this.parent(null, this)
+      if Math.abs(this.startX - this.pos.x) == this.maxX
+        this.velx = -(this.velx)
+
+
+      this.pos.x += this.velx
+
       this.angle = 0
     true
 })
