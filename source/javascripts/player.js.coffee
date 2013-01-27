@@ -6,7 +6,7 @@ Entities.Player = Entities.BaseEntity.extend({
       spriteheight: 128,
       shootCooldown: 150,
       entity_source: "player",
-      health: 5,
+      health: 10,
       type: me.game.ACTION_OBJECT,
       bulletArray: [0,4]
     }
