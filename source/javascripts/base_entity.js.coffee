@@ -36,6 +36,7 @@ Entities.BaseEntity = me.ObjectEntity.extend({
           obj.collidable = false
           me.game.remove(obj)
           me.game.removeAll()
+          me.game.HUD.setItemValue("score", "refresh to play again")
 
       else
         obj.visible = false
