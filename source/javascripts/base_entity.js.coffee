@@ -31,9 +31,12 @@ Entities.BaseEntity = me.ObjectEntity.extend({
           me.game.remove(this)
           me.game.remove(obj)
           me.game.HUD.updateItemValue("score", 100)
+          App.game.spawnEnemy()
         else
+          obj.visible = false
+          obj.collidable = false
+          me.game.remove(obj)
           me.game.removeAll()
-          alert "you lost, please refresh"
 
       else
         obj.visible = false
