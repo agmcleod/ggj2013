@@ -1,29 +1,21 @@
 class window.MusicController
   init: ->
-    this.tracks = {
-      intro: { 
-        file: "112bpm_fade_in_final",
-        time: 17000,
-        i: 0
-      },
-      loop: { 
-        file: "112bpm_loop_final",
-        time: 17000,
-        i: 1
-      }
-    }
-    this.play("intro", "loop")
+    this.tracks = ["112bpmfull", "140bpmfull", "170bpmfull", "220bpmfull", "320bpm_intro_final", "320bpm_loop_final"]
+    this.play()
 
   cleanup: ->
     me.audio.stopTrack()
 
-  play: (track_name, callbackTrack) ->
-    me.audio.play(this.tracks[track_name].file, false, =>
-      me.audio.playTrack(this.tracks[callbackTrack].file)
-    )
-
-  playFadeout: ->
-    me.audio.stopTrack()
-    me.audio.play(this.tracks["end"].file, false, =>
-      this.play("intro", "loop")
+  play: ->
+    t = this.tracks
+    me.audio.play(t[0], false, ->
+      me.audio.play(t[1], false, ->
+        me.audio.play(t[2], false, ->
+          me.audio.play(t[3], false, ->
+            me.audio.play(t[4], false, ->
+              me.audio.playTrack(t[5])
+            )
+          )
+        )
+      )
     )

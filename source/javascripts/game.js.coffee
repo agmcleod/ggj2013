@@ -59,20 +59,29 @@ window.App = {
       src: "sound/",
       channel: 2
     },{
-      name: "112bpm_fade_in_final",
+      name: "112bpmfull",
       type: "audio",
-      src: "sound/",
-      channel: 1
+      src: "sound/"
     },{
-      name: "112bpm_loop_final",
+      name: "140bpmfull",
       type: "audio",
-      src: "sound/",
-      channel: 2
+      src: "sound/"
     },{
-      name: "112bpm_fade_out_final",
+      name: "170bpmfull",
       type: "audio",
-      src: "sound/",
-      channel: 2
+      src: "sound/"
+    },{
+      name: "220bpmfull",
+      type: "audio",
+      src: "sound/"
+    },{
+      name: "320bpm_intro_final",
+      type: "audio",
+      src: "sound/"
+    },{
+      name: "320bpm_loop_final",
+      type: "audio",
+      src: "sound/"
     }, {
       name: "lex_grunt_1",
       type: "audio",
