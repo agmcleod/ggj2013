@@ -59,22 +59,17 @@ window.App = {
       src: "sound/",
       channel: 2
     },{
-      name: "112bpm_fade_in_intro",
+      name: "112bpm_fade_in_final",
       type: "audio",
       src: "sound/",
       channel: 1
     },{
-      name: "112bpm_1_layer_loop",
+      name: "112bpm_loop_final",
       type: "audio",
       src: "sound/",
       channel: 2
     },{
-      name: "112bpm_2_layer_loop",
-      type: "audio",
-      src: "sound/",
-      channel: 2
-    },{
-      name: "112bpm_3_layer_loop",
+      name: "112bpm_fade_out_final",
       type: "audio",
       src: "sound/",
       channel: 2
@@ -154,7 +149,6 @@ Game = me.InvisibleEntity.extend({
 
   update: ->
     me.video.clearSurface(me.video.getScreenCanvas().getContext("2d"), "#000")
-    window.musicController.update()
 
     if !this.started && me.timer.getTime() - this.startTimer > 1500
       this.spawnEnemy()
@@ -240,7 +234,6 @@ StartScreen = me.ScreenObject.extend({
       this.currentScreen++
       this.timer = me.timer.getTime()
 
-    window.musicController.update()
     true
 })
 

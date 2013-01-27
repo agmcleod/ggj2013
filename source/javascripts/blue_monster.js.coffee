@@ -9,7 +9,7 @@ Entities.BlueMonster = Entities.BaseEntity.extend({
       health: 2
       timer: me.timer.getTime() + 500, # put 500 milliseconds in the future, given a cooldown before it can fire
       type: me.game.ENEMY_OBJECT,
-      bulletArray: [1,4,7,10]
+      bulletArray: [3,7]
     }
 
     this.collidable = true

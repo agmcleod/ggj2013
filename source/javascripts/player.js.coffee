@@ -8,7 +8,7 @@ Entities.Player = Entities.BaseEntity.extend({
       entity_source: "player",
       health: 5,
       type: me.game.ACTION_OBJECT,
-      bulletArray: [0,3]
+      bulletArray: [0,4]
     }
 
     this.health = settings.health

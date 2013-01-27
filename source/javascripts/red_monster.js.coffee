@@ -9,7 +9,7 @@ Entities.RedMonster = Entities.BaseEntity.extend({
       health: 2
       timer: me.timer.getTime() + 300,
       type: me.game.ENEMY_OBJECT,
-      bulletArray: [2,5,8,11]
+      bulletArray: [2,6,10,14]
     }
 
     this.collidable = true
