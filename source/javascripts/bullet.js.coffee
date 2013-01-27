@@ -3,8 +3,8 @@ Entities.Bullet = me.ObjectEntity.extend({
     this.tx = settings.tx
     this.ty = settings.ty
     settings.image = "bullets"
-    settings.spritewidth = 16
-    settings.spriteheight = 16
+    settings.spritewidth = 20
+    settings.spriteheight = 20
     this.parent(x, y, settings)
     this.speed = 10
     this.source = settings.source
@@ -25,10 +25,6 @@ Entities.Bullet = me.ObjectEntity.extend({
   update: ->
     if this.pos.x > 800 || this.pos.x < -this.width || this.pos.y < -this.height || this.pos.y > 640
       me.game.remove(this)
-
-    if !this.isCurrentAnimation("idle2") && me.timer.getTime() - this.timer > 50
-      this.addAnimation("idle2", [this.arr[0]+1])
-      this.setCurrentAnimation("idle2")
 
     me.game.collide(this)
     this.pos.x += this.velx

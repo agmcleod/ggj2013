@@ -8,6 +8,7 @@ Entities.BaseEntity = me.ObjectEntity.extend({
       this.timer = me.timer.getTime()
     this.entity_source = settings.entity_source
     this.health = settings.health
+    this.bulletArray = settings.bulletArray
     
     this.collidable = true
     this.type = settings.type
@@ -45,7 +46,7 @@ Entities.BaseEntity = me.ObjectEntity.extend({
 
   shoot: (target) ->
     bullet = new Entities.Bullet(this.center().x, this.center().y, { tx: target.x, ty: target.y, source: this.entity_source })
-    bullet.addAnimationArray([0])
+    bullet.addAnimationArray(this.bulletArray)
     addedBullet = false
     if this.entity_source == "enemy"
       me.game.add(bullet, window.App.game.bulletZEnemyIndex)

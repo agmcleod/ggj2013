@@ -7,7 +7,8 @@ Entities.Player = Entities.BaseEntity.extend({
       shootCooldown: 150,
       entity_source: "player",
       health: 5,
-      type: me.game.ACTION_OBJECT
+      type: me.game.ACTION_OBJECT,
+      bulletArray: [0,3]
     }
 
     this.health = settings.health

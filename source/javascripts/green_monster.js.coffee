@@ -8,7 +8,8 @@ Entities.GreenMonster = Entities.BaseEntity.extend({
       entity_source: "enemy",
       health: 2
       timer: me.timer.getTime() + 500, # put 500 milliseconds in the future, given a cooldown before it can fire
-      type: me.game.ENEMY_OBJECT
+      type: me.game.ENEMY_OBJECT,
+      bulletArray: [1,4,7,10]
     }
 
     this.collidable = true
