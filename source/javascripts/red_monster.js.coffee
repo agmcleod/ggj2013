@@ -13,8 +13,33 @@ Entities.RedMonster = Entities.BaseEntity.extend({
     }
 
     this.collidable = true
-    x = Math.floor(Math.random() * 550) + 10
-    y = Math.floor(Math.random() * 450) + 10
+    xRanges = [[0, 200], [550, 672]]
+    yRanges = [[0, 100], [360, 416]]
+
+    xSection = !! Math.round(Math.random() * 1)
+    ySection = !! Math.round(Math.random() * 1)
+
+    xRange = null
+    xBase = null
+    yRange = null
+    yBase = null
+    if xSection
+      xRange = xRanges[0][1] - xRanges[0][0]
+      xBase = xRanges[0][0]
+    else
+      xRange = xRanges[1][1] - xRanges[1][0]
+      xBase = xRanges[1][0]
+
+    if ySection
+      yRange = yRanges[0][1] - yRanges[0][0]
+      yBase = yRanges[0][0]
+    else
+      yRange = yRanges[1][1] - yRanges[1][0]
+      yBase = yRanges[1][0]
+
+    x = Math.floor(Math.random() * xRange) + xBase
+    y = Math.floor(Math.random() * yRange) + yBase
+    console.log "red pos: #{x},#{y}"
     this.parent(x, y, settings)
     this.addAnimation("idle", [0,1,2,3,2,1])
     this.setCurrentAnimation("idle")

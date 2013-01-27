@@ -30,6 +30,7 @@ Entities.BaseEntity = me.ObjectEntity.extend({
         if obj.source == "player"
           me.game.remove(this)
           me.game.remove(obj)
+          window.App.game.score += 100
           me.game.HUD.updateItemValue("score", 100)
           App.game.spawnEnemy()
         else

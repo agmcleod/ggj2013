@@ -99,11 +99,12 @@ Game = me.InvisibleEntity.extend({
 
     this.startTimer = me.timer.getTime()
     this.started = false
+    this.score = 0
     #me.debug.renderHitBox = true
 
-  spriteZIndex: 50
   bulletZIndex: 49
   bulletZEnemyIndex: 51
+  spriteZIndex: 50
 
   spawnEnemy: ->
     r = !! Math.round(Math.random() * 1)
@@ -129,6 +130,9 @@ GameOverScreen = me.ScreenObject.extend({
 
   draw: (context) ->
     context.drawImage(this.overImage, 0, 0)
+    context.font="30px Verdana"
+    context.fillStyle = "yellow"
+    context.fillText("Final Score: " + window.App.game.score, 500, 50)
 
   onDestroyEvent: ->
     me.input.unbindKey(me.input.KEY.ENTER)
@@ -136,7 +140,6 @@ GameOverScreen = me.ScreenObject.extend({
 
   onResetEvent: ->
     this.overImage = me.loader.getImage("youlost")
-    console.log 'GameOverScreen.onResetEvent'
     me.input.bindKey(me.input.KEY.ENTER, "enter", true)
 
   update: ->
