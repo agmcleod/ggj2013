@@ -30,6 +30,10 @@ window.App = {
       type: "image",
       src: "images/red_monster.png"
     },{
+      name: "blue_monster",
+      type: "image",
+      src: "images/blue_monster.png"
+    },{
       name: "frame1",
       type: "image",
       src: "images/Frame1.png"
@@ -140,11 +144,13 @@ Game = me.InvisibleEntity.extend({
   spriteZIndex: 50
 
   spawnEnemy: ->
-    r = !! Math.round(Math.random() * 1)
-    if r
+    r =  Math.round(Math.random() * 2)
+    if r == 0
       me.game.add(new Entities.GreenMonster(), this.spriteZIndex)
-    else
+    else if r == 1
       me.game.add(new Entities.RedMonster(), this.spriteZIndex)
+    else if r == 2
+      me.game.add(new Entities.BlueMonster(), this.spriteZIndex)
 
   update: ->
     me.video.clearSurface(me.video.getScreenCanvas().getContext("2d"), "#000")

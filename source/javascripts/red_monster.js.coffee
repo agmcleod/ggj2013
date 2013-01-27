@@ -7,7 +7,7 @@ Entities.RedMonster = Entities.BaseEntity.extend({
       shootCooldown: 600,
       entity_source: "enemy",
       health: 2
-      timer: me.timer.getTime() + 100,
+      timer: me.timer.getTime() + 300,
       type: me.game.ENEMY_OBJECT,
       bulletArray: [2,5,8,11]
     }
@@ -39,7 +39,6 @@ Entities.RedMonster = Entities.BaseEntity.extend({
 
     x = Math.floor(Math.random() * xRange) + xBase
     y = Math.floor(Math.random() * yRange) + yBase
-    console.log "red pos: #{x},#{y}"
     this.parent(x, y, settings)
     this.addAnimation("idle", [0,1,2,3,2,1])
     this.setCurrentAnimation("idle")

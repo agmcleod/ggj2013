@@ -1,9 +1,9 @@
-Entities.GreenMonster = Entities.BaseEntity.extend({
+Entities.BlueMonster = Entities.BaseEntity.extend({
   init: ->
     settings = {
-      image: "green_monster",
-      spritewidth: 160,
-      spriteheight: 216,
+      image: "blue_monster",
+      spritewidth: 128,
+      spriteheight: 169,
       shootCooldown: 500,
       entity_source: "enemy",
       health: 2
@@ -13,8 +13,8 @@ Entities.GreenMonster = Entities.BaseEntity.extend({
     }
 
     this.collidable = true
-    xRanges = [[0, 200], [550, 640]]
-    yRanges = [[0, 100], [360, 424]]
+    xRanges = [[0, 200], [550, 672]]
+    yRanges = [[0, 100], [360, 471]]
 
     xSection = !! Math.round(Math.random() * 1)
     ySection = !! Math.round(Math.random() * 1)
