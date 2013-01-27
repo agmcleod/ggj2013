@@ -20,6 +20,7 @@ Entities.BaseEntity = me.ObjectEntity.extend({
 
   onCollision: (res, obj) ->
     if obj['source'] != null && obj['source'] != this.entity_source
+      console.log "damage: #{obj.damage} | health: #{this.health} | #{this.entity_source}"
       this.health -= obj.damage
       this.flicker(20)
       if this.entity_source == "player"
@@ -35,10 +36,11 @@ Entities.BaseEntity = me.ObjectEntity.extend({
           alert "you lost, please refresh"
 
       else
+        obj.visible = false
+        obj.collidable = false
         me.game.remove(obj)
 
-    else if obj['entity_source'] != null && obj['entity_source'] != this.entity_source
-      this.health -= 1
+
 
 
   shoot: (target) ->

@@ -11,6 +11,7 @@ Entities.GreenMonster = Entities.BaseEntity.extend({
       type: me.game.ENEMY_OBJECT
     }
 
+    this.collidable = true
     x = Math.floor(Math.random() * 550) + 10
     y = Math.floor(Math.random() * 450) + 10
     this.parent(x, y, settings)

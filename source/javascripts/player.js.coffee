@@ -22,6 +22,7 @@ Entities.Player = Entities.BaseEntity.extend({
     r = Math.floor(Math.random())
     this.startX = this.pos.x
     this.maxX = 50
+    this.collidable = true
     if r == 0
       this.velx = -2
     else
