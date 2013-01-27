@@ -174,6 +174,8 @@ GameOverScreen = me.ScreenObject.extend({
   onResetEvent: ->
     this.overImage = me.loader.getImage("youlost")
     me.input.bindKey(me.input.KEY.ENTER, "enter", true)
+    r = Math.round(Math.random() * 2) + 1
+    me.audio.play("lex_screams_#{r}")
 
   update: ->
     if me.input.isKeyPressed('enter')
