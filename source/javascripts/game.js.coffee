@@ -3,7 +3,7 @@ window.App = {
     if !me.video.init("app", 800, 640, false, 1)
       alert "your browser does not support the canvas"
 
-    me.audio.init("ogg")
+    me.audio.init("mp3,ogg")
     me.loader.onload = this.loaded.bind(this)
     me.loader.preload([{
       name: "TowerBG",
@@ -62,15 +62,48 @@ window.App = {
     },{
       name: "112bpm_1_layer_loop",
       type: "audio",
-      src: "sound/"
+      src: "sound/",
+      channel: 2
     },{
       name: "112bpm_2_layer_loop",
       type: "audio",
-      src: "sound/"
+      src: "sound/",
+      channel: 2
     },{
       name: "112bpm_3_layer_loop",
       type: "audio",
-      src: "sound/"
+      src: "sound/",
+      channel: 2
+    }, {
+      name: "lex_grunt_1",
+      type: "audio",
+      src: "sound/",
+      channel: 3
+    }, {
+      name: "lex_grunt_2",
+      type: "audio",
+      src: "sound/",
+      channel: 3
+    }, {
+      name: "lex_grunt_3",
+      type: "audio",
+      src: "sound/",
+      channel: 3
+    }, {
+      name: "lex_screams_1",
+      type: "audio",
+      src: "sound/",
+      channel: 3
+    }, {
+      name: "lex_screams_2",
+      type: "audio",
+      src: "sound/",
+      channel: 3
+    }, {
+      name: "lex_screams_3",
+      type: "audio",
+      src: "sound/",
+      channel: 3
     }])
     me.state.change(me.state.LOADING)
 

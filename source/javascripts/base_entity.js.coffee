@@ -25,6 +25,8 @@ Entities.BaseEntity = me.ObjectEntity.extend({
       this.flicker(20)
       if this.entity_source == "player"
         me.game.HUD.setItemValue("health", "HP: #{this.health}")
+        r = Math.round(Math.random() * 2) + 1
+        me.audio.play("lex_grunt_#{r}")
 
       if this.health <= 0
         if obj.source == "player"
