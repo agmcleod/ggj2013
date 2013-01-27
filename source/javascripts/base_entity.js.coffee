@@ -49,15 +49,15 @@ Entities.BaseEntity = me.ObjectEntity.extend({
   shoot: (target) ->
     bullet = new Entities.Bullet(this.center().x, this.center().y, { tx: target.x, ty: target.y, source: this.entity_source })
     bullet.addAnimationArray([0])
-    added_bullet = false
+    addedBullet = false
     if this.entity_source == "enemy"
       me.game.add(bullet, window.App.game.bulletZEnemyIndex)
-      added_bullet = true
+      addedBullet = true
     else if this.entity_source == "player"
       me.game.add(bullet, window.App.game.bulletZIndex)
-      added_bullet = true
+      addedBullet = true
 
-    if added_bullet
+    if addedBullet
       me.game.sort()
       me.audio.play("gunshot_a")
     

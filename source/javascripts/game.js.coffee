@@ -92,10 +92,10 @@ Game = me.InvisibleEntity.extend({
 
   spawnEnemy: ->
     r = !! Math.round(Math.random() * 1)
-    #if r
-    #  me.game.add(new Entities.GreenMonster(), this.spriteZIndex)
-    #else
-    me.game.add(new Entities.RedMonster(), this.spriteZIndex)
+    if r
+      me.game.add(new Entities.GreenMonster(), this.spriteZIndex)
+    else
+      me.game.add(new Entities.RedMonster(), this.spriteZIndex)
 
   update: ->
     me.video.clearSurface(me.video.getScreenCanvas().getContext("2d"), "#000")
