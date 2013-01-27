@@ -70,7 +70,7 @@ Entities.RedMonster = Entities.BaseEntity.extend({
     # otherwise if the previous y coordinate is greater than the current one (sprite moving up)
     # and it passed the target, set it
     if this.pos.y - vely > this.pos.y && this.pos.y < position.y
-      this.pos.y = y
+      this.pos.y = position.y
 
     return (this.pos.x == position.x && this.pos.y == position.y)
 
@@ -82,7 +82,6 @@ Entities.RedMonster = Entities.BaseEntity.extend({
       arrived = this.moveTo(this.originalPosition)
 
     this.goingToPatrol = !this.goingToPatrol if arrived
-    console.log "#{this.targetPatrol.x},#{this.targetPatrol.y} | #{this.originalPosition.x},#{this.originalPosition.y}"
 
   update: ->
     # call parent update, passing in player position as target

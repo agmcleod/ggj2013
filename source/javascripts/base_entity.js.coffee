@@ -42,10 +42,7 @@ Entities.BaseEntity = me.ObjectEntity.extend({
         obj.visible = false
         obj.collidable = false
         me.game.remove(obj)
-
-
-
-
+        
   shoot: (target) ->
     bullet = new Entities.Bullet(this.center().x, this.center().y, { tx: target.x, ty: target.y, source: this.entity_source })
     bullet.addAnimationArray([0])
