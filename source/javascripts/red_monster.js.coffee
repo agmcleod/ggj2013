@@ -60,7 +60,7 @@ Entities.RedMonster = Entities.BaseEntity.extend({
     # otherwise if the previous coordinate is greater than, meaning it's moving left
     # and the x passed the target, set it to the target
     else if this.pos.x - velx > this.pos.x && this.pos.x < position.x
-      this.pos.x = x
+      this.pos.x = position.x
 
     # if the previous y coordinate is less than the current one (sprite is moving down)
     # and it passed the target, set it to the target

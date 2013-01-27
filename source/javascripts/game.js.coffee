@@ -77,6 +77,7 @@ window.App = {
   loaded: ->
     me.state.set(me.state.MENU, new StartScreen())
     me.state.set(me.state.PLAY, new PlayScreen())
+    me.state.set(me.state.GAMEOVER, new GameOverScreen())
     me.state.change(me.state.MENU)
 }
 
@@ -117,6 +118,26 @@ Game = me.InvisibleEntity.extend({
 })
 
 GameOverScreen = me.ScreenObject.extend({
+  init: ->
+    this.parent(true)
+    this.overImage = null
+
+  draw: (context) ->
+    context.drawImage(this.overImage, 0, 0)
+
+  onDestroyEvent: ->
+    me.input.unbindKey(me.input.KEY.ENTER)
+    me.input.unbindMouse(me.input.mouse.LEFT)
+
+  onResetEvent: ->
+    this.overImage = me.loader.getImage("youlost")
+    console.log 'GameOverScreen.onResetEvent'
+    me.input.bindKey(me.input.KEY.ENTER, "enter", true)
+
+  update: ->
+    if me.input.isKeyPressed('enter')
+      me.state.change(me.state.PLAY)
+    true
 
 })
 
@@ -158,7 +179,6 @@ StartScreen = me.ScreenObject.extend({
       me.loader.getImage("frame3")
     ]
 
-
   update: ->
     if me.input.isKeyPressed('enter')
       if this.viewStory
@@ -178,7 +198,9 @@ StartScreen = me.ScreenObject.extend({
 PlayScreen = me.ScreenObject.extend({
   onDestroyEvent: ->
     me.game.disableHUD()
-    window.musicController.cleanup()
+    # window.musicController.cleanup()
+    me.input.unbindMouse(me.input.mouse.LEFT)
+    me.input.unbindKey(me.input.KEY.X)
 
   onResetEvent: ->
     me.game.addHUD(0, 0, 800, 640)
