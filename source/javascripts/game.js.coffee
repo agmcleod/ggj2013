@@ -97,7 +97,8 @@ Game = me.InvisibleEntity.extend({
     me.game.HUD.setItemValue("health", "HP: #{player.health}")
     this.player = player
 
-    this.spawnEnemy()
+    this.startTimer = me.timer.getTime()
+    this.started = false
     #me.debug.renderHitBox = true
 
   spriteZIndex: 50
@@ -114,6 +115,10 @@ Game = me.InvisibleEntity.extend({
   update: ->
     me.video.clearSurface(me.video.getScreenCanvas().getContext("2d"), "#000")
     window.musicController.update()
+
+    if !this.started && me.timer.getTime() - this.startTimer > 1500
+      this.spawnEnemy()
+      this.started = true
       
 })
 
