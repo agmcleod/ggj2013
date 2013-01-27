@@ -20,7 +20,6 @@ Entities.BaseEntity = me.ObjectEntity.extend({
 
   onCollision: (res, obj) ->
     if obj['source'] != null && obj['source'] != this.entity_source
-      console.log "damage: #{obj.damage} | health: #{this.health} | #{this.entity_source}"
       this.health -= obj.damage
       this.flicker(20)
       if this.entity_source == "player"

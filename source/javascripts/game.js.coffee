@@ -26,6 +26,10 @@ window.App = {
       type: "image",
       src: "images/green_monster.png"
     },{
+      name: "red_monster",
+      type: "image",
+      src: "images/red_monster.png"
+    },{
       name: "gunshot_a",
       type: "audio",
       src: "sound/",
@@ -87,7 +91,11 @@ Game = me.InvisibleEntity.extend({
   bulletZEnemyIndex: 51
 
   spawnEnemy: ->
-    me.game.add(new Entities.GreenMonster(), this.spriteZIndex)
+    r = !! Math.round(Math.random() * 1)
+    if r
+      me.game.add(new Entities.GreenMonster(), this.spriteZIndex)
+    else
+      me.game.add(new Entities.RedMonster(), this.spriteZIndex)
 
   update: ->
     me.video.clearSurface(me.video.getScreenCanvas().getContext("2d"), "#000")

@@ -19,11 +19,11 @@ Entities.Player = Entities.BaseEntity.extend({
     this.addAnimation("idle",[0])
     this.setCurrentAnimation("idle")
     this.addAnimation("shooting", [1])
-    r = Math.floor(Math.random())
+    r = !! Math.round(Math.random() * 1)
     this.startX = this.pos.x
     this.maxX = 50
     this.collidable = true
-    if r == 0
+    if r
       this.velx = -2
     else
       this.velx = 2
