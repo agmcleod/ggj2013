@@ -9,4 +9,6 @@
 //= require score_hud
 //= require music_controller
 //= require start_screen
+//= require game_over_screen
+//= require play_screen
 //= require game
