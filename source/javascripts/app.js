@@ -8,4 +8,5 @@
 //= require background
 //= require score_hud
 //= require music_controller
+//= require start_screen
 //= require game
