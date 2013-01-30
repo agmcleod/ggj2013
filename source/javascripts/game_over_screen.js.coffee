@@ -12,10 +12,12 @@ Screens.GameOverScreen = me.ScreenObject.extend({
   onDestroyEvent: ->
     me.input.unbindKey(me.input.KEY.ENTER)
     me.input.unbindMouse(me.input.mouse.LEFT)
+    me.input.unbindTouch()
 
   onResetEvent: ->
     this.overImage = me.loader.getImage("youlost")
     me.input.bindKey(me.input.KEY.ENTER, "enter", true)
+    me.input.bindTouch(me.input.KEY.ENTER)
     r = Math.round(Math.random() * 2) + 1
     me.audio.play("lex_screams_#{r}")
 

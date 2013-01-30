@@ -21,6 +21,7 @@ Screens.StartScreen = me.ScreenObject.extend({
   onDestroyEvent: ->
     me.input.unbindKey(me.input.KEY.ENTER)
     me.input.unbindKey(me.input.KEY.X)
+    me.input.unbindTouch()
     me.input.unbindMouse(me.input.mouse.LEFT)
 
   onResetEvent: ->
@@ -30,6 +31,7 @@ Screens.StartScreen = me.ScreenObject.extend({
     me.input.bindKey(me.input.KEY.ENTER, "enter", true)
     me.input.bindKey(me.input.KEY.X, "x", true)
     me.input.bindMouse(me.input.mouse.LEFT, me.input.KEY.X)
+    me.input.bindTouch(me.input.KEY.X)
     this.screens = [
       me.loader.getImage("frame1"),
       me.loader.getImage("frame2"),
