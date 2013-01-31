@@ -1,6 +1,6 @@
 window.App = {
   init: ->
-    if !me.video.init("app", 800, 640, false, 1)
+    if !me.video.init("app", 800, 640, false, "auto", true)
       alert "your browser does not support the canvas"
 
     me.audio.init("mp3,ogg")
