@@ -54,14 +54,14 @@ Entities.RedMonster = Entities.BaseEntity.extend({
     xRange = null
     yRange = null
     if this.pos.x < 400
-      xRange = [400, 800-this.width]
+      xRange = [500, 800-this.width]
     else
-      xRange = [0, 400]
+      xRange = [0, 380-this.width]
 
     if this.pos.y < 320
-      yRange = [320, 640-this.height]
+      yRange = [360, 640-this.height]
     else
-      yRange = [0, 320]
+      yRange = [0, 300-this.height]
 
     this.targetPatrol = {
       x: Math.round(Math.random() * (xRange[1] - xRange[0])) + xRange[0],
