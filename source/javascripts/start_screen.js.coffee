@@ -13,7 +13,8 @@ Screens.StartScreen = me.ScreenObject.extend({
         this.timer = me.timer.getTime()
       if this.currentScreen >= this.screens.length
         me.state.change(me.state.PLAY)
-      context.drawImage(this.screens[this.currentScreen], 0, 0)
+      unless this.screens[this.currentScreen] == null || typeof this.screens[this.currentScreen] == "undefined"
+        context.drawImage(this.screens[this.currentScreen], 0, 0) 
     else
       context.drawImage(this.titleImage, 0, 0)
     

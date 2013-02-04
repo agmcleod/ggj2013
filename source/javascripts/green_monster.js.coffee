@@ -4,10 +4,10 @@ Entities.GreenMonster = Entities.BaseEntity.extend({
       image: "green_monster",
       spritewidth: 160,
       spriteheight: 216,
-      shootCooldown: 500,
+      shootCooldown: 700,
       entity_source: "enemy",
       health: 2
-      timer: me.timer.getTime() + 500, # put 500 milliseconds in the future, given a cooldown before it can fire
+      timer: me.timer.getTime() + 900,
       type: me.game.ENEMY_OBJECT,
       bulletArray: [1,5,9,13]
     }

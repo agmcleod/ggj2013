@@ -34,6 +34,8 @@ Entities.Player = Entities.BaseEntity.extend({
 
 
   update: ->
+    # update value of UI
+    me.game.HUD.setItemValue("health", this.health);
     if me.input.isKeyPressed("shoot")
       pos = me.input.mouse.pos
       if this.inShootState

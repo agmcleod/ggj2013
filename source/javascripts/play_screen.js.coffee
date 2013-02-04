@@ -8,7 +8,6 @@ Screens.PlayScreen = me.ScreenObject.extend({
 
   onResetEvent: ->
     me.game.addHUD(0, 0, 800, 640)
-    me.game.HUD.addItem("score", new HUD.ScoreHUD(650, 10, 'yellow'))
     window.App.game = new window.App.Game()
     me.input.bindKey(me.input.KEY.X, "shoot")
     me.input.bindMouse(me.input.mouse.LEFT, me.input.KEY.X)

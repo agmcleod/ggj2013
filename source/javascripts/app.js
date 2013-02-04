@@ -7,6 +7,7 @@
 //= require blue_monster
 //= require background
 //= require score_hud
+//= require health_hud
 //= require music_controller
 //= require start_screen
 //= require game_over_screen

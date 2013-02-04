@@ -7,7 +7,7 @@ Entities.RedMonster = Entities.BaseEntity.extend({
       shootCooldown: 600,
       entity_source: "enemy",
       health: 2
-      timer: me.timer.getTime() + 300,
+      timer: me.timer.getTime() + 600,
       type: me.game.ENEMY_OBJECT,
       bulletArray: [2,6,10,14]
     }

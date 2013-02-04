@@ -54,6 +54,10 @@ window.App = {
       type: "image",
       src: "images/Title1.jpg"
     },{
+      name: "hearts",
+      type: "image",
+      src: "images/hearts.png"
+    },{
       name: "gunshot_a",
       type: "audio",
       src: "sound/",
@@ -134,9 +138,10 @@ App.Game = me.InvisibleEntity.extend({
 
     player = new Entities.Player()
     me.game.add(player, this.spriteZIndex)
-    me.game.HUD.addItem("health", new HUD.ScoreHUD(40, 10))
-    me.game.HUD.setItemValue("health", "HP: #{player.health}")
     this.player = player
+
+    me.game.HUD.addItem("score", new HUD.ScoreHUD(650, 10, 'yellow'))
+    me.game.HUD.addItem("health", new HUD.HealthHUD(20, 10))
 
     this.startTimer = me.timer.getTime()
     this.started = false
