@@ -19,7 +19,7 @@ Entities.Player = Entities.BaseEntity.extend({
 
     this.addAnimation("idle",[0,1,2,3,2,1])
     this.setCurrentAnimation("idle")
-    this.addAnimation("toshooting", [4,5,6])
+    this.addAnimation("toshooting", [4,5,6], 9)
     this.addAnimation("toidle", [6,5,4])
     this.addAnimation("shooting",[7])
     r = !! Math.round(Math.random() * 1)

@@ -140,7 +140,7 @@ App.Game = me.InvisibleEntity.extend({
     me.game.add(player, this.spriteZIndex)
     this.player = player
 
-    me.game.HUD.addItem("score", new HUD.ScoreHUD(650, 10, 'yellow'))
+    me.game.HUD.addItem("score", new HUD.ScoreHUD(650, 30, 'yellow'))
     me.game.HUD.addItem("health", new HUD.HealthHUD(20, 10))
 
     this.startTimer = me.timer.getTime()
