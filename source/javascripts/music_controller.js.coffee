@@ -13,9 +13,9 @@ class window.MusicController
         me.audio.play(t[2], false, ->
           me.audio.play(t[3], false, ->
             me.audio.play(t[4], false, ->
-              me.audio.playTrack(t[5])
-            )
-          )
-        )
-      )
-    )
+              me.audio.playTrack(t[5], 0.7)
+            , 0.7)
+          , 0.7)
+        , 0.7)
+      , 0.7)
+    , 0.7)
