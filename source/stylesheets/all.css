@@ -9,9 +9,9 @@
 }
 
 #container, #app canvas {
-  max-width:800px;
-  max-height:640px;
-  width:100%;
+  width:800px;
+  height:640px;
+  /* width:100%; */
 }
 
 h1 {
@@ -28,8 +28,8 @@ h1, p {
   cursor:url('../images/crosshair.png'), auto;
 }
 
-@media screen and (max-width:800px) {
+/* @media screen and (max-width:800px) {
   h1, p {
     display:none;
   }
-}
+} */
