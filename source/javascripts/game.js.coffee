@@ -1,5 +1,6 @@
 window.App = {
   init: ->
+
     if !me.video.init("app", 800, 640, false, "1", true)
       alert "your browser does not support the canvas"
 
@@ -169,6 +170,12 @@ App.Game = me.InvisibleEntity.extend({
       this.started = true
       
 })
+
+isIOS = ->
+  userAgent().indexOf('iphone') != -1 || userAgent().indexOf('ipad') != -1
+
+userAgent = ->
+  window.navigator.userAgent.toLowerCase()
 
 window.onReady ->
   App.init()
