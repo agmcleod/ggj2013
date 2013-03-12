@@ -17,11 +17,11 @@ Entities.Player = Entities.BaseEntity.extend({
     y = (640 / 2) - (settings.spriteheight / 2)
     this.parent(x, y, settings)
 
-    this.addAnimation("idle",[0,1,2,3,2,1])
-    this.setCurrentAnimation("idle")
-    this.addAnimation("toshooting", [4,5,6], 2)
-    this.addAnimation("toidle", [6,5,4])
-    this.addAnimation("shooting",[7])
+    this.renderable.addAnimation("idle",[0,1,2,3,2,1])
+    this.renderable.setCurrentAnimation("idle")
+    this.renderable.addAnimation("toshooting", [4,5,6], 2)
+    this.renderable.addAnimation("toidle", [6,5,4])
+    this.renderable.addAnimation("shooting",[7])
     r = !! Math.round(Math.random() * 1)
     this.startX = this.pos.x
     this.maxX = 50
@@ -43,9 +43,9 @@ Entities.Player = Entities.BaseEntity.extend({
       else
         this.parent(null, this)
 
-      if !this.isCurrentAnimation("shooting") && !this.isCurrentAnimation("toshooting")
-        this.setCurrentAnimation("toshooting", ->
-          this.setCurrentAnimation("shooting")
+      if !this.renderable.isCurrentAnimation("shooting") && !this.renderable.isCurrentAnimation("toshooting")
+        this.renderable.setCurrentAnimation("toshooting", ->
+          this.renderable.setCurrentAnimation("shooting")
           this.inShootState = true
         )
 
@@ -54,9 +54,9 @@ Entities.Player = Entities.BaseEntity.extend({
         angle = 360 - (-angle)
       this.angle = (angle - 90) * Math.PI/180
     else
-      if this.isCurrentAnimation("shooting")
-        this.setCurrentAnimation("toidle", ->
-          this.setCurrentAnimation("idle")
+      if this.renderable.isCurrentAnimation("shooting")
+        this.renderable.setCurrentAnimation("toidle", ->
+          this.renderable.setCurrentAnimation("idle")
         )
         this.inShootState = false
       this.parent(null, this)

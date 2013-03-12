@@ -22,7 +22,7 @@ Entities.BaseEntity = me.ObjectEntity.extend({
   onCollision: (res, obj) ->
     if obj['source'] != null && obj['source'] != this.entity_source
       this.health -= obj.damage
-      this.flicker(20)
+      this.renderable.flicker(20)
       if this.entity_source == "player"
         me.game.HUD.setItemValue("health", "HP: #{this.health}")
         r = Math.round(Math.random() * 2) + 1

@@ -1,4 +1,4 @@
-//= require melonJS-0.9.5-min
+//= require melonJS-0.9.7-min
 //= require bullet
 //= require base_entity
 //= require player

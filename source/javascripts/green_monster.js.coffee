@@ -40,8 +40,8 @@ Entities.GreenMonster = Entities.BaseEntity.extend({
     x = Math.floor(Math.random() * xRange) + xBase
     y = Math.floor(Math.random() * yRange) + yBase
     this.parent(x, y, settings)
-    this.addAnimation("idle", [0,1,2,3,2,1])
-    this.setCurrentAnimation("idle")
+    this.renderable.addAnimation("idle", [0,1,2,3,2,1])
+    this.renderable.setCurrentAnimation("idle")
 
   update: ->
     # call parent update, passing in player position as target

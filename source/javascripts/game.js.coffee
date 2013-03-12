@@ -127,7 +127,7 @@ window.App = {
     me.state.change(me.state.MENU)
 }
 
-App.Game = me.InvisibleEntity.extend({
+App.Game = me.ObjectEntity.extend({
   init: ->
     this.backgrounds = [
       new Entities.Background(0, 0, {}),

@@ -34,6 +34,6 @@ Entities.Bullet = me.ObjectEntity.extend({
 
   addAnimationArray: (arr) ->
     this.arr = arr
-    this.addAnimation("idle", this.arr)
-    this.setCurrentAnimation("idle")
+    this.renderable.addAnimation("idle", this.arr)
+    this.renderable.setCurrentAnimation("idle")
 })
