@@ -23,12 +23,12 @@ Entities.Bullet = me.ObjectEntity.extend({
     this.angle = (angle - 90) * Math.PI/180
 
   update: ->
-    if this.pos.x > 800 || this.pos.x < -this.width || this.pos.y < -this.height || this.pos.y > 640
+    if this.renderable.pos.x > 800 || this.renderable.pos.x < -this.width || this.renderable.pos.y < -this.height || this.renderable.pos.y > 640
       me.game.remove(this)
 
     me.game.collide(this)
-    this.pos.x += this.velx
-    this.pos.y += this.vely
+    this.renderable.pos.x += this.velx
+    this.renderable.pos.y += this.vely
     this.parent()
     true
 
