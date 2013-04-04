@@ -55,7 +55,6 @@ Entities.Player = Entities.BaseEntity.extend({
       this.renderable.angle = (angle - 90) * Math.PI/180
     else
       if this.renderable.isCurrentAnimation("shooting")
-
         this.renderable.setCurrentAnimation("toidle", =>
           this.renderable.setCurrentAnimation("idle")
         )
