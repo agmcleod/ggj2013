@@ -5,14 +5,15 @@ Entities.Bullet = me.ObjectEntity.extend({
     settings.image = "bullets"
     settings.spritewidth = 20
     settings.spriteheight = 20
+    this.collidable = true
     this.parent(x, y, settings)
     this.speed = 10
     this.source = settings.source
     this.damage = 1
     this.timer = me.timer.getTime()
     this.calculateTarget()
-    this.collidable = true
     this.type = me.game.ACTION_OBJECT
+    console.log(this.pos.x);
 
   calculateTarget: ->
     angle = Math.atan2(this.ty - this.pos.y, this.tx - this.pos.x) * (180 / Math.PI)
@@ -23,14 +24,14 @@ Entities.Bullet = me.ObjectEntity.extend({
     this.renderable.angle = (angle - 90) * Math.PI/180
 
   update: ->
-    if this.renderable.pos.x > 800 || this.renderable.pos.x < -this.width || this.renderable.pos.y < -this.height || this.renderable.pos.y > 640
+    if this.pos.x > 800 || this.pos.x < -this.width || this.pos.y < -this.height || this.pos.y > 640
       me.game.remove(this)
-
-    me.game.collide(this)
-    this.renderable.pos.x += this.velx
-    this.renderable.pos.y += this.vely
-    this.parent()
-    true
+    else
+      this.collide()
+      this.pos.x += this.velx
+      this.pos.y += this.vely
+      this.parent()
+      true
 
   addAnimationArray: (arr) ->
     this.arr = arr

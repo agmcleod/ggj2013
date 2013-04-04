@@ -1,5 +1,6 @@
 Entities.BaseEntity = me.ObjectEntity.extend({
   init: (x, y, settings) ->
+    this.collidable = true
     this.parent(x, y, settings)
 
     this.shootCooldown = settings.shootCooldown
@@ -10,7 +11,6 @@ Entities.BaseEntity = me.ObjectEntity.extend({
     this.health = settings.health
     this.bulletArray = settings.bulletArray
     
-    this.collidable = true
     this.type = settings.type
 
   center: ->
