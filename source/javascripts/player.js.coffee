@@ -44,7 +44,7 @@ Entities.Player = Entities.BaseEntity.extend({
         this.parent(null, this)
 
       if !this.renderable.isCurrentAnimation("shooting") && !this.renderable.isCurrentAnimation("toshooting")
-        this.renderable.setCurrentAnimation("toshooting", ->
+        this.renderable.setCurrentAnimation("toshooting", =>
           this.renderable.setCurrentAnimation("shooting")
           this.inShootState = true
         )
@@ -52,10 +52,11 @@ Entities.Player = Entities.BaseEntity.extend({
       angle = Math.atan2(pos.y - this.center().y, pos.x - this.center().x) * (180 / Math.PI)
       if angle < 0
         angle = 360 - (-angle)
-      this.angle = (angle - 90) * Math.PI/180
+      this.renderable.angle = (angle - 90) * Math.PI/180
     else
       if this.renderable.isCurrentAnimation("shooting")
-        this.renderable.setCurrentAnimation("toidle", ->
+
+        this.renderable.setCurrentAnimation("toidle", =>
           this.renderable.setCurrentAnimation("idle")
         )
         this.inShootState = false
@@ -66,6 +67,6 @@ Entities.Player = Entities.BaseEntity.extend({
 
       this.pos.x += this.velx
 
-      this.angle = 0
+      this.renderable.angle = 0
     true
 })

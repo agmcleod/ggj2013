@@ -20,7 +20,7 @@ Entities.Bullet = me.ObjectEntity.extend({
     this.vely = Math.sin(angle * Math.PI / 180) * this.speed * me.timer.tick
     if angle < 0
       angle = 360 - (-angle)
-    this.angle = (angle - 90) * Math.PI/180
+    this.renderable.angle = (angle - 90) * Math.PI/180
 
   update: ->
     if this.pos.x > 800 || this.pos.x < -this.width || this.pos.y < -this.height || this.pos.y > 640
