@@ -5,6 +5,7 @@ Entities.Background = me.ObjectEntity.extend({
     settings.image = "Tower_BlurBG"
     this.parent(x, y, settings)
     this.collidable = false
+    this.alwaysUpdate = true
 
   update: ->
     this.pos.y -= 40 * me.timer.tick

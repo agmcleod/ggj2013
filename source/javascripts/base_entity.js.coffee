@@ -10,7 +10,7 @@ Entities.BaseEntity = me.ObjectEntity.extend({
     this.entity_source = settings.entity_source
     this.health = settings.health
     this.bulletArray = settings.bulletArray
-    
+    this.alwaysUpdate = true;
     this.type = settings.type
 
   center: ->
@@ -20,6 +20,7 @@ Entities.BaseEntity = me.ObjectEntity.extend({
     }
 
   onCollision: (res, obj) ->
+    console.log 'collide!'
     if obj['source'] != null && obj['source'] != this.entity_source
       this.health -= obj.damage
       this.renderable.flicker(20)
@@ -30,16 +31,15 @@ Entities.BaseEntity = me.ObjectEntity.extend({
 
       if this.health <= 0
         if obj.source == "player"
-          me.game.remove(this)
-          me.game.remove(obj)
+          me.game.remove(this, true)
+          me.game.remove(obj, true)
           window.App.game.score += 100
           me.game.HUD.updateItemValue("score", 100)
           App.game.spawnEnemy()
-          me.game.sort()
         else
           obj.visible = false
           obj.collidable = false
-          me.game.remove(obj)
+          me.game.remove(obj, true)
           me.game.removeAll()
           me.state.change(me.state.GAMEOVER)
 
@@ -47,7 +47,6 @@ Entities.BaseEntity = me.ObjectEntity.extend({
         obj.visible = false
         obj.collidable = false
         me.game.remove(obj)
-        me.game.sort()
 
   shoot: (target) ->
     bullet = new Entities.Bullet(this.center().x, this.center().y, { tx: target.x, ty: target.y, source: this.entity_source })

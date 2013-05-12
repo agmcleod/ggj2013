@@ -61,8 +61,7 @@ window.App = {
     },{
       name: "gunshot_a",
       type: "audio",
-      src: "sound/",
-      channel: 2
+      src: "sound/"
     },{
       name: "112bpmfull",
       type: "audio",
@@ -95,28 +94,23 @@ window.App = {
     }, {
       name: "lex_grunt_2",
       type: "audio",
-      src: "sound/",
-      channel: 3
+      src: "sound/"
     }, {
       name: "lex_grunt_3",
       type: "audio",
-      src: "sound/",
-      channel: 3
+      src: "sound/"
     }, {
       name: "lex_screams_1",
       type: "audio",
-      src: "sound/",
-      channel: 3
+      src: "sound/"
     }, {
       name: "lex_screams_2",
       type: "audio",
-      src: "sound/",
-      channel: 3
+      src: "sound/"
     }, {
       name: "lex_screams_3",
       type: "audio",
-      src: "sound/",
-      channel: 3
+      src: "sound/"
     }])
     me.state.change(me.state.LOADING)
 
@@ -147,7 +141,8 @@ App.Game = me.ObjectEntity.extend({
     this.startTimer = me.timer.getTime()
     this.started = false
     this.score = 0
-    #me.debug.renderHitBox = true
+    me.debug.renderHitBox = true
+    this.alwaysUpdate = true
 
   bulletZIndex: 49
   bulletZEnemyIndex: 51
@@ -162,13 +157,13 @@ App.Game = me.ObjectEntity.extend({
     else if r == 2
       me.game.add(new Entities.BlueMonster(), this.spriteZIndex)
 
+    me.game.sort();
+
   update: ->
     me.video.clearSurface(me.video.getScreenCanvas().getContext("2d"), "#000")
-
     if !this.started && me.timer.getTime() - this.startTimer > 1500
       this.spawnEnemy()
       this.started = true
-      
 })
 
 isIOS = ->
