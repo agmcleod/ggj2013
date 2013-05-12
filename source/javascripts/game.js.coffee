@@ -116,56 +116,11 @@ window.App = {
 
   loaded: ->
     me.state.set(me.state.MENU, new Screens.StartScreen())
-    me.state.set(me.state.PLAY, new Screens.PlayScreen())
+    App.playScreen = new Screens.PlayScreen()
+    me.state.set(me.state.PLAY, App.playScreen)
     me.state.set(me.state.GAMEOVER, new Screens.GameOverScreen())
     me.state.change(me.state.MENU)
 }
-
-App.Game = me.ObjectEntity.extend({
-  init: ->
-    this.backgrounds = [
-      new Entities.Background(0, 0, {}),
-      new Entities.Background(0, 1280, {})
-    ]
-    this.bottomBackground = 0
-    me.game.add(this.backgrounds[0], 0)
-    me.game.add(this.backgrounds[1], 0)
-
-    player = new Entities.Player()
-    me.game.add(player, this.spriteZIndex)
-    this.player = player
-
-    me.game.HUD.addItem("score", new HUD.ScoreHUD(650, 30, 'yellow'))
-    me.game.HUD.addItem("health", new HUD.HealthHUD(20, 10))
-
-    this.startTimer = me.timer.getTime()
-    this.started = false
-    this.score = 0
-    me.debug.renderHitBox = true
-    this.alwaysUpdate = true
-
-  bulletZIndex: 49
-  bulletZEnemyIndex: 51
-  spriteZIndex: 50
-
-  spawnEnemy: ->
-    r =  Math.round(Math.random() * 2)
-    if r == 0
-      me.game.add(new Entities.GreenMonster(), this.spriteZIndex)
-    else if r == 1
-      me.game.add(new Entities.RedMonster(), this.spriteZIndex)
-    else if r == 2
-      me.game.add(new Entities.BlueMonster(), this.spriteZIndex)
-
-    me.game.sort();
-
-  update: ->
-    me.video.clearSurface(me.video.getScreenCanvas().getContext("2d"), "#000")
-    if !this.started && me.timer.getTime() - this.startTimer > 1500
-      this.spawnEnemy()
-      this.started = true
-})
-
 isIOS = ->
   userAgent().indexOf('iphone') != -1 || userAgent().indexOf('ipad') != -1
 

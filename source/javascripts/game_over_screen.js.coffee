@@ -7,7 +7,7 @@ Screens.GameOverScreen = me.ScreenObject.extend({
     context.drawImage(this.overImage, 0, 0)
     context.font = "30px Verdana"
     context.fillStyle = "yellow"
-    context.fillText("Final Score: " + window.App.game.score, 500, 50)
+    context.fillText("Final Score: " + App.playScreen.score, 500, 50)
 
   onDestroyEvent: ->
     me.input.unbindKey(me.input.KEY.ENTER)

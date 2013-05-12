@@ -35,7 +35,7 @@ Entities.BaseEntity = me.ObjectEntity.extend({
           me.game.remove(obj, true)
           window.App.game.score += 100
           me.game.HUD.updateItemValue("score", 100)
-          App.game.spawnEnemy()
+          App.playScreen.spawnEnemy()
         else
           obj.visible = false
           obj.collidable = false
@@ -53,10 +53,10 @@ Entities.BaseEntity = me.ObjectEntity.extend({
     bullet.addAnimationArray(this.bulletArray)
     addedBullet = false
     if this.entity_source == "enemy"
-      me.game.add(bullet, window.App.game.bulletZEnemyIndex)
+      me.game.add(bullet, App.playScreen.bulletZEnemyIndex)
       addedBullet = true
     else if this.entity_source == "player"
-      me.game.add(bullet, window.App.game.bulletZIndex)
+      me.game.add(bullet, App.playScreen.bulletZIndex)
       addedBullet = true
 
     if addedBullet

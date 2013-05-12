@@ -110,7 +110,7 @@ Entities.RedMonster = Entities.BaseEntity.extend({
 
   update: ->
     # call parent update, passing in player position as target
-    v = window.App.game.player.center()
+    v = App.playScreen.player.center()
     mod = Math.round(Math.random() * 90)
     add = !! Math.round(Math.random() * 1)
     x = v.x 

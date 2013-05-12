@@ -45,6 +45,6 @@ Entities.GreenMonster = Entities.BaseEntity.extend({
 
   update: ->
     # call parent update, passing in player position as target
-    this.parent(window.App.game.player.center(), this)
+    this.parent(App.playScreen.player.center(), this)
     true
 })
