@@ -31,15 +31,15 @@ Entities.BaseEntity = me.ObjectEntity.extend({
 
       if this.health <= 0
         if obj.source == "player"
-          me.game.remove(this, true)
-          me.game.remove(obj, true)
+          me.game.remove(this)
+          me.game.remove(obj)
           App.playScreen.score += 100
           me.game.HUD.updateItemValue("score", 100)
           App.playScreen.spawnEnemy()
         else
           obj.visible = false
           obj.collidable = false
-          me.game.remove(obj, true)
+          me.game.remove(obj)
           me.game.removeAll()
           me.state.change(me.state.GAMEOVER)
 

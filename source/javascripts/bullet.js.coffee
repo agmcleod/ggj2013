@@ -27,7 +27,7 @@ Entities.Bullet = me.ObjectEntity.extend({
   update: ->
     #this.updateMovement()
     if this.pos.x > 800 || this.pos.x < -this.width || this.pos.y < -this.height || this.pos.y > 640
-      me.game.remove(this, true)
+      me.game.remove(this)
     else
       me.game.collide(this);
       this.pos.x += this.velx
